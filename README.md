@@ -1,4 +1,4 @@
-Here's a `README.md` file for your project. It includes instructions on how to set up and run the application, along with a brief explanation of what the project does and how to use it.
+
 
 ---
 
@@ -113,4 +113,3 @@ This project is licensed under the MIT License. See the `LICENSE` file for more 
 
 ---
 
-This `README.md` file provides a clear setup and usage guide for your project, making it easy for others to understand how to install, run, and use the Pronunciation Assessment System.
