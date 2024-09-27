@@ -1,95 +1,3 @@
-# from dotenv import load_dotenv
-# import streamlit as st
-# import os
-# import speech_recognition as sr
-# import google.generativeai as genai
-#
-# # Load environment variables
-# load_dotenv()
-#
-# # Configure the Google Gemini API
-# genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
-#
-# # Streamlit CSS styles
-# css = """
-# <style>
-# .title {
-#     font-size: 36px;
-#     color: #00FFFF;
-#     text-align: left;
-# }
-# .txt {
-#     font-size: 18px;
-#     color: #4F8BF9;
-#     text-align: left;
-# }
-# </style>
-# """
-# st.markdown(css, unsafe_allow_html=True)
-#
-#
-# # Function to get the pronunciation analysis response from Google Gemini
-# def get_gemini_response(prompt, user_input, correct_input):
-#     # Creating the input for Google Gemini
-#     model = genai.GenerativeModel('gemini-pro')
-#     full_prompt = f"{prompt}\nUser said: '{user_input}'\nExpected: '{correct_input}'. Provide detailed feedback on the pronunciation accuracy."
-#
-#     # Send the request to the Gemini model
-#     response = model.generate_content([full_prompt])
-#     return response.text
-#
-#
-# # Function to capture speech using the microphone and update the text dynamically
-# def recognize_speech_dynamic():
-#     recognizer = sr.Recognizer()
-#
-#     with sr.Microphone() as source:
-#         st.info("Listening... Please speak now.")
-#         recognizer.adjust_for_ambient_noise(source)
-#
-#         # Placeholder for dynamically updating recognized text
-#         recognized_text_placeholder = st.empty()
-#
-#         audio = recognizer.listen(source)
-#
-#         try:
-#             # Update the UI with dynamically recognized text
-#             recognized_text = recognizer.recognize_google(audio)
-#             recognized_text_placeholder.text(f"Recognized: {recognized_text}")
-#             return recognized_text
-#         except sr.UnknownValueError:
-#             recognized_text_placeholder.text("Sorry, I could not understand the audio.")
-#         except sr.RequestError as e:
-#             recognized_text_placeholder.text(f"Could not request results; {e}")
-#         return None
-#
-#
-# # Streamlit UI for Pronunciation Assessment
-# st.markdown('<h1 class="title">Pronunciation Assessment System Using Google Gemini</h1>', unsafe_allow_html=True)
-# st.markdown('<h1 class="txt">Enter a sentence and speak it aloud for pronunciation assessment.</h1>',
-#             unsafe_allow_html=True)
-#
-# # Input field for the correct sentence
-# correct_sentence = st.text_input("Enter the correct sentence for pronunciation:")
-#
-# # Button to start speaking
-# if st.button("Start Speaking"):
-#     if correct_sentence:
-#         # Capture the user's spoken text and update UI dynamically
-#         user_pronunciation = recognize_speech_dynamic()
-#
-#         if user_pronunciation:
-#             # Use Google Gemini to analyze pronunciation
-#             prompt = """
-#             You are an expert in pronunciation and language assessment.
-#             Analyze the user's spoken sentence and compare it with the expected sentence.
-#             Provide detailed feedback on the pronunciation, indicating which words or sounds are incorrect and how they can be improved along with the correctness score.
-#             """
-#             response = get_gemini_response(prompt, user_pronunciation, correct_sentence)
-#             st.subheader("Pronunciation Feedback from Google Gemini:")
-#             st.write(response)
-#     else:
-#         st.error("Please enter the correct sentence first.")
 
 from dotenv import load_dotenv
 import streamlit as st
@@ -97,10 +5,8 @@ import os
 import speech_recognition as sr
 import google.generativeai as genai
 
-# Load environment variables
 load_dotenv()
 
-# Configure the Google Gemini API
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
 # Streamlit CSS styles
